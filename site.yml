@@ -1,0 +1,7 @@
+---
+
+- hosts: docker-registry
+  sudo: yes
+  roles:
+    - docker-registry
+

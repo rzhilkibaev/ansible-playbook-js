@@ -1,0 +1,11 @@
+---
+
+- name: install and start docker-registry container
+  docker:
+    name: docker-registry
+    image: "registry:{{ docker_registry_version }}"
+    state: started
+    volumes:
+      - "/tmp/registry"
+    ports:
+      - "5000:5000"
