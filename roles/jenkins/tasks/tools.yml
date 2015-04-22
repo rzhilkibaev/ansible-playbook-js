@@ -1,0 +1,9 @@
+---
+
+- name: create tools dicrectory
+  file: path={{ jenkins_home }}/tools state=directory owner=jenkins
+
+- name: install tools
+  unarchive: src={{ item }} dest={{ jenkins_home }}/tools owner=jenkins
+  with_items: tools
+

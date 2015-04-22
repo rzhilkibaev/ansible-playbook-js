@@ -1,7 +1,4 @@
 ---
 
-- hosts: docker-registry
-  sudo: yes
-  roles:
-    - docker-registry
-
+- include: docker-registry.yml
+- include: jenkins.yml
