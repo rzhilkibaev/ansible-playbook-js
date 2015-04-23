@@ -1,9 +1,10 @@
 ---
 
+# the tools directory should be owned by root so jenkins process cannot change it
 - name: create tools dicrectory
-  file: path={{ jenkins_home }}/tools state=directory owner=jenkins
+  file: path=/usr/lib/jenkins state=directory
 
 - name: install tools
-  unarchive: src={{ item }} dest={{ jenkins_home }}/tools owner=jenkins
+  unarchive: src="{{ item }}" dest=/usr/lib/jenkins/
   with_items: tools
 
