@@ -1,0 +1,12 @@
+---
+
+- name: create jvm directory
+  file: path=/usr/lib/jvm state=directory
+
+  # need to specify owner/group otherwise ansible creates files as uucp:143
+- name: extract java
+  unarchive: src=jdk-7u79-linux-x64.tar.gz dest=/usr/lib/jvm owner=root group=root
+  
+  # the name java-7-oracle is kept consistent with what webupd8 installer uses
+- name: create symlink
+  file: src=/usr/lib/jvm/jdk1.7.0_79 dest=/usr/lib/jvm/java-7-oracle state=link
