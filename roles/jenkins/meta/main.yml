@@ -1,0 +1,4 @@
+---
+
+dependencies:
+  - { role: java-8-oracle }

@@ -1,8 +1,19 @@
 ---
 
-jenkins_home: /home/jenkins
-jenkins_jdk: jdk1.8.0_45
-tools:
-  - jdk-8u45-linux-x64.tar.gz
-  - jdk-7u79-linux-x64.tar.gz
+# http port
+jenkins_http_port: 10000
 
+# home directory
+jenkins_home: /var/lib/jenkins
+
+# webroot directory
+jenkins_webroot: /var/cache/jenkins/war
+
+# war file directory
+jenkins_war: /usr/share/jenkins
+
+# java binary
+jenkins_java: /usr/lib/jvm/java-8-oracle/bin/java
+
+# java arguments
+jenkins_java_args: "-Djava.awt.headless=true"
