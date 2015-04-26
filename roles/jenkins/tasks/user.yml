@@ -4,7 +4,7 @@
   group: name=jenkins
   
 - name: create user
-  user: name=jenkins group=jenkins
+  user: name=jenkins group=jenkins createhome=no
 
 - name: create home directory
   file: path={{ jenkins_home }} state=directory owner=jenkins
