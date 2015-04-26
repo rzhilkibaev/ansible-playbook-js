@@ -10,3 +10,4 @@
   # the name java-8-oracle is kept consistent with what webupd8 installer uses
 - name: create symlink
   file: src=/usr/lib/jvm/jdk1.8.0_45 dest=/usr/lib/jvm/java-8-oracle state=link
+  register: java_8_oracle
