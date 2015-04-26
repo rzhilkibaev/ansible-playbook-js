@@ -10,3 +10,12 @@
   
 - name: create webroot directory
   file: path="{{ jenkins_webroot }}" state=directory owner=jenkins group=jenkins
+  
+- name: create service
+  template: src=jenkins.service.j2 dest=/lib/systemd/system/jenkins.service
+  register: jenkins
+  
+- name: reload systemd
+  command: systemctl daemon-reload
+  when: java_8_oracle.changed or jenkins.changed
+  notify: restart jenkins
