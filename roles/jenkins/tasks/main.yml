@@ -2,4 +2,11 @@
 
 - include: user.yml
 
-
+- name: create war directory
+  file: path="{{ jenkins_war }}" state=directory
+  
+- name: copy war file
+  copy: src="jenkins-{{ jenkins_version }}.war" dest="{{ jenkins_war }}"
+  
+- name: create webroot directory
+  file: path="{{ jenkins_webroot }}" state=directory owner=jenkins group=jenkins

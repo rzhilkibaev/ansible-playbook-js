@@ -1,5 +1,7 @@
 ---
 
+jenkins_version: "1.610"
+
 # http port
 jenkins_http_port: 10000
 
