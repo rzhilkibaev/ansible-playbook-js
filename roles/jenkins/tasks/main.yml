@@ -3,19 +3,22 @@
 - include: user.yml
 
 - name: create war directory
-  file: path="{{ jenkins_war }}" state=directory
+  file: path="{{ jenkins_war_dir }}" state=directory
   
 - name: copy war file
-  copy: src="jenkins-{{ jenkins_version }}.war" dest="{{ jenkins_war }}"
+  copy: src="jenkins-{{ jenkins_version }}.war" dest="{{ jenkins_war_dir }}"
+  notify: restart jenkins
   
 - name: create webroot directory
   file: path="{{ jenkins_webroot }}" state=directory owner=jenkins group=jenkins
+  notify: restart jenkins
   
 - name: create service
   template: src=jenkins.service.j2 dest=/lib/systemd/system/jenkins.service
-  register: jenkins
+  notify: restart jenkins
   
 - name: reload systemd
   command: systemctl daemon-reload
-  when: java_8_oracle.changed or jenkins.changed
+  changed_when: java_8_oracle.changed
   notify: restart jenkins
+

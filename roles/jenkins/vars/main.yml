@@ -1,7 +1,7 @@
 ---
 
 # jenkins version, keep quoted otherwise ansible treats it as a number and drops 0 at the end
-jenkins_version: "1.610"
+jenkins_version: "1.612"
 
 # http port
 jenkins_http_port: 10000
@@ -13,7 +13,7 @@ jenkins_home: /var/lib/jenkins
 jenkins_webroot: /var/cache/jenkins/war
 
 # war file directory
-jenkins_war: /usr/share/jenkins
+jenkins_war_dir: /usr/share/jenkins
 
 # java binary
 jenkins_java: /usr/lib/jvm/java-8-oracle/bin/java
