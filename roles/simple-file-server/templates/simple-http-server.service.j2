@@ -1,0 +1,14 @@
+# {{ ansible_managed }}
+
+[Unit]
+Description=Python SimpleHTTPServer
+
+[Service]
+User=simple-http-server
+Group=simple-http-server
+Restart=always
+WorkingDirectory={{ simple_http_server_home }}
+ExecStart=/usr/bin/python -m SimpleHTTPServer {{ simple_http_server_port }}
+
+[Install]
+WantedBy=multi-user.target

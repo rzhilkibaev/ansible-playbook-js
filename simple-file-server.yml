@@ -1,0 +1,6 @@
+---
+
+- hosts: simple-file-server
+  sudo: yes
+  roles:
+    - simple-file-server

@@ -1,0 +1,4 @@
+---
+
+- name: restart simple-http-server
+  service: name=simple-http-server state=restarted

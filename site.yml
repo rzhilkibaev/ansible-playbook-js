@@ -2,3 +2,4 @@
 
 - include: docker-registry.yml
 - include: jenkins.yml
+- include: simple-file-server.yml
