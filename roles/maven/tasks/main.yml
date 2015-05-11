@@ -1,0 +1,5 @@
+---
+
+  # need to specify owner/group otherwise ansible creates files as uucp:143
+- name: extract maven
+  unarchive: src=apache-maven-3.2.5-bin.tar.gz dest=/opt owner=root group=root

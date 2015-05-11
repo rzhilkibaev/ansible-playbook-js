@@ -1,0 +1,6 @@
+---
+
+- hosts: maven
+  sudo: yes
+  roles:
+    - maven

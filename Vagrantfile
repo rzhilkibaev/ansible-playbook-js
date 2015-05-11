@@ -11,12 +11,14 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     #ansible.playbook = "docker-registry.yml"
     #ansible.playbook = "jenkins.yml"
     #ansible.playbook = "simple-file-server.yml"
-    ansible.playbook = "ant.yml"
+    #ansible.playbook = "ant.yml"
+    ansible.playbook = "maven.yml"
     ansible.groups = {
       "docker-registry" => ["default"],
       "jenkins" => ["default"],
       "simple-file-server" => ["default"],
       "ant" => ["default"],
+      "maven" => ["default"],
     }
   end
 end
