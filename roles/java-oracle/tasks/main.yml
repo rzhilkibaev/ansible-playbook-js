@@ -1,0 +1,8 @@
+---
+
+  # need to specify owner/group otherwise ansible creates files as uucp:143
+- name: extract java
+  unarchive: src="{{ item }}" dest=/opt owner=root group=root
+  with_items:
+    - jdk-7u79-linux-x64.tar.gz
+    - jdk-8u45-linux-x64.tar.gz

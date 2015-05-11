@@ -19,6 +19,4 @@
   
 - name: reload systemd
   command: systemctl daemon-reload
-  changed_when: java_8_oracle.changed
-  notify: restart jenkins
-
+  changed_when: false

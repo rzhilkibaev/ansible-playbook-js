@@ -1,0 +1,6 @@
+---
+
+- hosts: java-oracle
+  sudo: yes
+  roles:
+    - java-oracle

@@ -16,7 +16,7 @@ jenkins_webroot: /var/cache/jenkins/war
 jenkins_war_dir: /usr/share/jenkins
 
 # java binary
-jenkins_java: /usr/lib/jvm/java-8-oracle/bin/java
+jenkins_java: /opt/jdk1.8.0_45/bin/java
 
 # java arguments
 jenkins_java_args: "-Djava.awt.headless=true"
