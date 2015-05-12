@@ -1,6 +1,6 @@
 ---
 
 dependencies:
-  - { role: java-oracle }
-  - { role: ant }
-  - { role: maven }
+  - { role: java-oracle, tags: ["slow"] }
+  - { role: ant, tags: ["slow"] }
+  - { role: maven, tags: ["slow"] }

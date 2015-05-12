@@ -1,0 +1,9 @@
+---
+
+- name: create service
+  template: src=jenkins.service.j2 dest=/lib/systemd/system/jenkins.service
+  notify: restart jenkins
+  
+- name: reload systemd
+  command: systemctl daemon-reload
+  changed_when: false
