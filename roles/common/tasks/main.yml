@@ -6,5 +6,5 @@
 - name: install pip
   easy_install: name="pip"
 
-  - name: install docker-py
+- name: install docker-py
   pip: name=docker-py
