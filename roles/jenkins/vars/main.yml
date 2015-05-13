@@ -4,7 +4,7 @@
 jenkins_version: "1.612"
 
 # http port
-jenkins_http_port: 10000
+jenkins_https_port: 10000
 
 # home directory
 jenkins_home: /var/lib/jenkins
@@ -14,6 +14,10 @@ jenkins_webroot: /var/cache/jenkins/war
 
 # war file directory
 jenkins_war_dir: /usr/share/jenkins
+
+# keystore file name and password, will generate a keystore if commented out
+#jenkins_keystore_file: keystore
+jenkins_keystore_password: notasecret
 
 # java binary
 jenkins_java: /opt/jdk1.8.0_45/bin/java

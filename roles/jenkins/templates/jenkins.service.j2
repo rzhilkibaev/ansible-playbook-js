@@ -10,7 +10,15 @@ Restart=always
 Environment=JENKINS_HOME={{ jenkins_home }}
 # jvm exits with this status code upon graceful termination
 SuccessExitStatus=143
-ExecStart={{ jenkins_java }} {{ jenkins_java_args }} -jar {{ jenkins_war_dir }}/jenkins-{{ jenkins_version }}.war --webroot={{ jenkins_webroot }} --httpPort={{ jenkins_http_port }} --ajp13Port=-1
+ExecStart={{ jenkins_java }} \
+  {{ jenkins_java_args }} \
+  -jar {{ jenkins_war_dir }}/jenkins-{{ jenkins_version }}.war \
+  --webroot={{ jenkins_webroot }} \
+  --httpsPort={{ jenkins_https_port }} \
+  --httpPort=-1 \
+  --ajp13Port=-1 \
+  --httpsKeyStore={{ jenkins_home }}/keystore \
+  --httpsKeyStorePassword={{ jenkins_keystore_password }}
 
 [Install]
 WantedBy=multi-user.target

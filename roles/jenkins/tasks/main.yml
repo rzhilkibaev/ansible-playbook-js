@@ -21,4 +21,6 @@
   file: path="{{ jenkins_webroot }}" state=directory owner=jenkins group=jenkins
   notify: restart jenkins
 
+- include: keystore.yml
+
 - include: service.yml
