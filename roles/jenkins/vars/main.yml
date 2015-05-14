@@ -18,8 +18,10 @@ jenkins_webroot: /var/cache/jenkins/war
 # war file directory
 jenkins_war_dir: /usr/share/jenkins
 
-# keystore file name and password, will generate a keystore if commented out
+# keystore file name, will generate a new keystore if commented out
 jenkins_keystore_file: keystore
+
+# keystore password
 jenkins_keystore_password: notasecret
 
 # java binary
