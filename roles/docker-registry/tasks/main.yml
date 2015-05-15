@@ -4,7 +4,7 @@
   docker:
     name: docker-registry
     image: "registry:{{ docker_registry_version }}"
-    state: started
+    state: running
     volumes:
       - "/tmp/registry"
     ports:
