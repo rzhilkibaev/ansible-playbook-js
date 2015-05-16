@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# this script ensures all files required to run the playbook are present
+
 set -e
 set -o pipefail
 
