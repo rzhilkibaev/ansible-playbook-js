@@ -1,7 +1,8 @@
 ---
 
-- name: install svn and git
+- name: install svn and git and other packages
   apt: name="{{ item }}" update_cache=yes
   with_items:
     - subversion
     - git
+    - unzip

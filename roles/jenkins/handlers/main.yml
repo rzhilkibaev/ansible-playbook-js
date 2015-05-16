@@ -5,3 +5,6 @@
   
 - name: reload jenkins
   service: name=jenkins state=restarted
+
+- name: extract jenkins-cli
+  command: unzip -j -o "{{ jenkins_war_dir }}/jenkins-{{ jenkins_version }}.war" "WEB-INF/jenkins-cli.jar" -d "{{ jenkins_war_dir }}/"

@@ -11,7 +11,9 @@
   
 - name: copy war file
   copy: src="jenkins-{{ jenkins_version }}.war" dest="{{ jenkins_war_dir }}"
-  notify: restart jenkins
+  notify:
+    - restart jenkins
+    - extract jenkins-cli
   
 - name: create webroot directory
   file: path="{{ jenkins_webroot }}" state=directory owner=jenkins group=jenkins
