@@ -8,3 +8,7 @@
 
 - name: install docker
   apt: name=lxc-docker update_cache=yes
+  notify: restart docker
+
+- name: enable service
+  service: name=docker enabled=yes
