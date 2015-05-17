@@ -38,7 +38,7 @@
     - windows-slaves
 
 - name: pin prepackaged plugins
-  file: path={{ jenkins_home }}/plugins/{{ item }}.jpi.pinned owner=jenkins group=jenkins
+  file: path={{ jenkins_home }}/plugins/{{ item }}.jpi.pinned state=touch owner=jenkins group=jenkins
   with_items:
     - credentials
     - cvs
