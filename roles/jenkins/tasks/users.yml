@@ -5,7 +5,7 @@
   group: name=jenkins
   
 - name: create jenkins user
-  user: name=jenkins group=jenkins groups=shadow createhome=no
+  user: name=jenkins group=jenkins groups=shadow,docker createhome=no
 
   # user/group to administer jenkins
 - name: create jenkins-admins group
