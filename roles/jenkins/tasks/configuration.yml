@@ -3,4 +3,4 @@
 - name: checkout configuration
   git: repo="{{ jenkins_configuration_repo }}" dest="{{ jenkins_home }}" force=yes
   sudo_user: jenkins
-  notify: reload jenkins
+  notify: restart jenkins
