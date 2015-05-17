@@ -26,6 +26,8 @@
   # clone configuration while jenkins_home is empty
 - include: configuration.yml
 
+- include: plugins.yml
+
 - include: keystore.yml
 
 - include: service.yml
