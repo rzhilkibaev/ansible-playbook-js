@@ -61,3 +61,4 @@ if [ ! -f keystore ]; then
     fi
 fi
 
+echo "Done!"
