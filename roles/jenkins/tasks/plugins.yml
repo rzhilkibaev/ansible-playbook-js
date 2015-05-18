@@ -39,6 +39,7 @@
 
 - name: pin prepackaged plugins
   file: path={{ jenkins_home }}/plugins/{{ item }}.jpi.pinned state=touch owner=jenkins group=jenkins
+  changed_when: false
   with_items:
     - credentials
     - cvs
