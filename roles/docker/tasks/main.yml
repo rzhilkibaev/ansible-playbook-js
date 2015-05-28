@@ -1,10 +1,10 @@
 ---
 
 - name: add docker repository to apt
-  apt_repository: repo='deb http://get.docker.com/ubuntu docker main'
+  apt_repository: repo='deb https://get.docker.com/ubuntu docker main'
 
 - name: add docker key to apt
-  apt_key: keyserver=pgp.mit.edu id=36A1D7869245C8950F966E92D8576A8BA88D21E9
+  apt_key: keyserver=hkp://p80.pool.sks-keyservers.net:80 id=36A1D7869245C8950F966E92D8576A8BA88D21E9
 
 - name: install docker
   apt: name=lxc-docker update_cache=yes
