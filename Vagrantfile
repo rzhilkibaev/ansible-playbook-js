@@ -31,6 +31,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     when "aws"
         puts "TODO: aws"
     when "managed"
+        config.vm.box = "tknerr/managed-server-dummy"
+        config.vm.provider :managed do |managed|
+            managed.server = "vivid"
+        end
         puts "TODO: managed"
     else
         config.vm.box = "larryli/vivid64"
