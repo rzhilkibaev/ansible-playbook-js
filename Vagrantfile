@@ -35,7 +35,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         config.vm.provider :managed do |managed|
             managed.server = "vivid"
         end
-        puts "TODO: managed"
     else
         config.vm.box = "larryli/vivid64"
         # jenkins
