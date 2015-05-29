@@ -1,0 +1,19 @@
+---
+
+- name: set up data container
+  docker:
+    name: nexus-data
+    image: busybox
+    state: present
+    volumes:
+      - "/sonatype-work"
+
+- name: set up nexus container
+  docker:
+    name: nexus
+    image: "sonatype/nexus:oss"
+    state: running
+    volumes_from:
+      - nexus-data
+    ports:
+      - "8081:8081"

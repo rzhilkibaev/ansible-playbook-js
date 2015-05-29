@@ -24,3 +24,6 @@
 - simple-file-server
   - port: `8000`
   - directory: `/opt/files`
+- nexus
+  - port: `8081`
+  - directory: `/sonatype-work`
