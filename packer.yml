@@ -1,0 +1,6 @@
+---
+
+- hosts: packer
+  sudo: yes
+  roles:
+    - packer

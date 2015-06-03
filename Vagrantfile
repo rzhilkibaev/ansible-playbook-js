@@ -8,9 +8,10 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # shared configuration
     config.vm.provision "ansible" do |ansible|
         #ansible.playbook = "site.yml"
-        #ansible.playbook = "docker-registry.yml"
+        ansible.playbook = "docker-registry.yml"
+        ansible.playbook = "packer.yml"
         #ansible.playbook = "docker.yml"
-        ansible.playbook = "nexus.yml"
+        #ansible.playbook = "nexus.yml"
         #ansible.playbook = "jenkins.yml"
         #ansible.skip_tags = "slow"
         #ansible.playbook = "simple-file-server.yml"
@@ -19,6 +20,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
         #ansible.playbook = "java-oracle.yml"
         ansible.groups = {
             "docker-registry" => ["default"],
+            "packer" => ["default"],
             "docker" => ["default"],
             "nexus" => ["default"],
             "jenkins" => ["default"],

@@ -1,0 +1,10 @@
+---
+
+- name: download packer
+  get_url: url=https://dl.bintray.com/mitchellh/packer/packer_0.7.5_linux_amd64.zip dest=/tmp/
+  register: download
+
+- name: extract packer
+  unarchive: src="{{ download.dest }}" dest=/usr/bin/ copy=no
+  # ansible always marks it as changed
+  changed_when: false
