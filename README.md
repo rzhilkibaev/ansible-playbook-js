@@ -32,3 +32,6 @@
 
 ## Conventions
 - software not managed by apt-get is installed into /opt (except for Jenkins since it uses multiple directories).
+- use `myapp_version` and not `myapp_ver`
+- use `roles/myrole/vars` for things like versions and other unlikely to be overriden variables
+- user `roles/myrole/defaults` for things which almost certainly will be overriden by group variables
