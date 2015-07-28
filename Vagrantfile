@@ -8,7 +8,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     # shared configuration
     config.vm.provision "ansible" do |ansible|
         #ansible.playbook = "site.yml"
-        ansible.playbook = "docker-registry.yml"
+        #ansible.playbook = "docker-registry.yml"
         ansible.playbook = "packer.yml"
         #ansible.playbook = "docker.yml"
         #ansible.playbook = "nexus.yml"
@@ -33,7 +33,22 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     case ENV["PROVIDER"]
     when "aws"
-        puts "TODO: aws"
+        config.vm.box = "dummy"
+        config.vm.synced_folder ".", "./vagrant", disabled: true
+        config.vm.provider :aws do |aws, override|
+            aws.access_key_id = ENV["AWS_ACCESS_KEY_ID"]
+            aws.secret_access_key = ENV["AWS_SECRET_ACCESS_KEY"]
+            aws.keypair_name = ENV["AWS_KEYPAIR"]
+            aws.ami = "ami-fff32894"
+            aws.security_groups = [ENV["AWS_SECURITY_GROUP"]]
+            aws.tags = {
+                'Name' => 'renat-ansible-playbook-js',
+                'Owner' => 'rzhilkib',
+            }
+
+            override.ssh.username = "ubuntu"
+            override.ssh.private_key_path = "/home/rz/.ssh/rzhilkib-aws-js.pem"
+        end
     when "managed"
         config.vm.box = "tknerr/managed-server-dummy"
         config.vm.provider :managed do |managed|

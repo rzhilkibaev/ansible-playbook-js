@@ -1,10 +1,22 @@
 ---
 
-- name: install easy_install
-  apt: name="python-setuptools"
+- name: install common packages
+  apt: name="{{ item }}" update_cache=yes
+  with_items:
+   - git
+   - subversion
+   - unzip
+   - python-setuptools
 
 - name: install pip
   easy_install: name="pip"
 
 - name: install docker-py
   pip: name=docker-py version=1.1.0
+
+  # we touch a file in /var/lib/ansible/done directory when we complete some heavy task
+  # this file serves as an indicator that this task is executed so we don't need to execute it again
+  # this is a workaround since unarchive and some other ansible modules are executed
+  # even if they succeeded during last run
+- name: create ansible done directory
+  file: path=/var/lib/ansible/done state=directory

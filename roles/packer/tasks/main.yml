@@ -1,10 +1,9 @@
 ---
 
-- name: download packer
-  get_url: url=https://dl.bintray.com/mitchellh/packer/packer_0.7.5_linux_amd64.zip dest=/tmp/
-  register: download
+  # need to specify owner/group otherwise ansible creates files as uucp:143
+- name: extract
+  unarchive: src="packer_{{ packer_ver }}_linux_amd64.zip" dest=/usr/bin/ owner=root group=root creates=/var/lib/ansible/done/packer_{{ packer_ver }}_linux_amd64.zip.done
 
-- name: extract packer
-  unarchive: src="{{ download.dest }}" dest=/usr/bin/ copy=no
-  # ansible always marks it as changed
+- name: update ansible done files
+  file: path=/var/lib/ansible/done/packer_{{ packer_ver }}_linux_amd64.zip.done state=touch
   changed_when: false

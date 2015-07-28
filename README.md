@@ -7,8 +7,9 @@
 - `apache-ant-1.9.4-bin.tar.gz` (ant)
 - `ant-contrib-1.0b3.jar` (ant)
 - `apache-maven-3.2.5-bin.tar.gz` (maven)
+- `packer_0.8.2_linux_amd64.zip` (packer)
 
-## Summary
+## Installed software summary:
 - java-oracle
   - directory: `/opt/jdk1.7.0_79`
   - directory: `/opt/jdk1.8.0_45`
@@ -17,6 +18,7 @@
 - maven
   - directory: `/opt/apache-maven-3.2.5`
 - docker-registry
+  - volume: `?`
   - port: `5000`
 - jenkins
   - port: `10000`
@@ -26,7 +28,7 @@
   - directory: `/opt/files`
 - nexus
   - port: `8081`
-  - directory: `/sonatype-work`
+  - volume: `/sonatype-work`
 
 ## Conventions
-- sowtware not managed by apt-get is installed into /opt
+- software not managed by apt-get is installed into /opt (except for Jenkins since it uses multiple directories).

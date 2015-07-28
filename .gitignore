@@ -6,3 +6,4 @@
 *.war
 *.jar
 keystore
+setup-secrets.sh
