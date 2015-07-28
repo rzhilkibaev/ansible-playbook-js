@@ -2,8 +2,8 @@
 
   # need to specify owner/group otherwise ansible creates files as uucp:143
 - name: extract
-  unarchive: src="packer_{{ packer_ver }}_linux_amd64.zip" dest=/usr/bin/ owner=root group=root creates=/var/lib/ansible/done/packer_{{ packer_ver }}_linux_amd64.zip.done
+  unarchive: src="packer_{{ packer_version }}_linux_amd64.zip" dest=/usr/bin/ owner=root group=root creates=/var/lib/ansible/done/packer_{{ packer_version }}_linux_amd64.zip.done
 
 - name: update ansible done files
-  file: path=/var/lib/ansible/done/packer_{{ packer_ver }}_linux_amd64.zip.done state=touch
+  file: path=/var/lib/ansible/done/packer_{{ packer_version }}_linux_amd64.zip.done state=touch
   changed_when: false
