@@ -27,3 +27,6 @@
 - nexus
   - port: `8081`
   - directory: `/sonatype-work`
+
+## Conventions
+- sowtware not managed by apt-get is installed into /opt
