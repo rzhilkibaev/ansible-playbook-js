@@ -7,6 +7,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # shared configuration
     config.vm.provision "ansible" do |ansible|
+        ansible.tags = "current"
         #ansible.playbook = "site.yml"
         #ansible.playbook = "docker-registry.yml"
         ansible.playbook = "jenkins-master.yml"

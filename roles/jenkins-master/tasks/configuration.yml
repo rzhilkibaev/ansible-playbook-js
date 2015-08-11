@@ -1,6 +1,15 @@
 ---
 
+  # Checks out configuration on first run only.
+  # Some configs contain secrets so they can't be checked in.
+  # Also there is no way to just update existing files (force=no fials because of existing modifications, update=yes overwrites local changes).
+  # I can't find a way to check out and update.
+  # Maybe I need a bash script for that.
+
 - name: checkout configuration
-  git: repo="{{ jenkins_configuration_repo }}" dest="{{ jenkins_home }}" force=yes
+  git: repo="{{ jenkins_configuration_repo }}" dest="{{ jenkins_home }}" force=yes update=no
   sudo_user: jenkins
-  notify: restart jenkins
+  # it always reports as changed because of local changes
+  changed_when: false
+  tags:
+    - current
