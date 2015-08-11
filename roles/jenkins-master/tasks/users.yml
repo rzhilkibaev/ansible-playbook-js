@@ -5,7 +5,10 @@
   group: name=jenkins
   
 - name: create jenkins user
-  user: name=jenkins group=jenkins groups=shadow createhome=no
+  user: name=jenkins group=jenkins groups=shadow
+
+- name: configure git for jenkins user
+  template: src=.gitconfig.j2 dest=/home/jenkins/.gitconfig
 
   # user/group to administer jenkins
 - name: create jenkins-admins group
@@ -13,3 +16,4 @@
   
 - name: create jenkins-admin user
   user: name=jenkins-admin groups=jenkins-admins createhome=no
+
