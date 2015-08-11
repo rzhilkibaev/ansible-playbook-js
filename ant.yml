@@ -1,6 +1,0 @@
----
-
-- hosts: ant
-  sudo: yes
-  roles:
-    - ant

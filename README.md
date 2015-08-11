@@ -35,3 +35,6 @@
 - use `myapp_version` and not `myapp_ver`
 - use `roles/myrole/vars` for things like versions and other unlikely to be overriden variables
 - user `roles/myrole/defaults` for things which almost certainly will be overriden by group variables
+
+## Notes
+- run `sudo passwd jenkins-admin` on the managed jenkins server to create a password for jenkins-admin

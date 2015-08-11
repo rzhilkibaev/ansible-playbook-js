@@ -9,25 +9,19 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "ansible" do |ansible|
         #ansible.playbook = "site.yml"
         #ansible.playbook = "docker-registry.yml"
-        ansible.playbook = "packer.yml"
+        ansible.playbook = "jenkins-master.yml"
         #ansible.playbook = "docker.yml"
         #ansible.playbook = "nexus.yml"
         #ansible.playbook = "jenkins.yml"
         #ansible.skip_tags = "slow"
         #ansible.playbook = "simple-file-server.yml"
-        #ansible.playbook = "ant.yml"
-        #ansible.playbook = "maven.yml"
-        #ansible.playbook = "java-oracle.yml"
         ansible.groups = {
             "docker-registry" => ["default"],
-            "packer" => ["default"],
             "docker" => ["default"],
             "nexus" => ["default"],
             "jenkins" => ["default"],
             "simple-file-server" => ["default"],
-            "ant" => ["default"],
-            "maven" => ["default"],
-            "java-oracle" => ["default"],
+            "jenkins-master" => ["default"],
         }
     end
 
@@ -39,7 +33,8 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             aws.access_key_id = ENV["AWS_ACCESS_KEY_ID"]
             aws.secret_access_key = ENV["AWS_SECRET_ACCESS_KEY"]
             aws.keypair_name = ENV["AWS_KEYPAIR"]
-            aws.ami = "ami-fff32894"
+            # vivid 20150729
+            aws.ami = "ami-2b72a840"
             aws.security_groups = [ENV["AWS_SECURITY_GROUP"]]
             aws.tags = {
                 'Name' => 'renat-ansible-playbook-js',

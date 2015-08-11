@@ -1,0 +1,6 @@
+---
+
+- hosts: jenkins-master
+  sudo: yes
+  roles:
+    - jenkins-master

@@ -1,6 +1,0 @@
----
-
-- hosts: nexus
-  sudo: yes
-  roles:
-    - nexus

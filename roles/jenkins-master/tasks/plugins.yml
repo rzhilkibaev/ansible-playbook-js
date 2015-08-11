@@ -1,0 +1,62 @@
+---
+
+- name: create plugins directory
+  file: path={{ jenkins_home }}/plugins state=directory owner=jenkins group=jenkins
+
+- name: download plugins
+  get_url: url=http://updates.jenkins-ci.org/latest/{{ item }}.hpi dest={{ jenkins_home }}/plugins/{{ item }}.jpi owner=jenkins group=jenkins
+  notify: restart jenkins
+  register: get_url_result
+  until: "'OK' in get_url_result.msg or 'file already exists' in get_url_result.msg"
+  retries: 5
+  delay: 10
+  with_items:
+    - ant
+    - antisamy-markup-formatter
+    - build-pipeline-plugin
+    - config-file-provider
+    - credentials
+    - cvs
+    - ec2
+    - external-monitor-job
+    - git-client
+    - git
+    - javadoc
+    - jquery
+    - junit
+    - ldap
+    - mailer
+    - managed-scripts
+    - mapdb-api
+    - matrix-auth
+    - matrix-project
+    - maven-plugin
+    - node-iterator-api
+    - pam-auth
+    - parameterized-trigger
+    - scm-api
+    - script-security
+    - ssh-credentials
+    - ssh-slaves
+    - subversion
+    - token-macro
+    - translation
+    - windows-slaves
+
+- name: pin prepackaged plugins
+  file: path={{ jenkins_home }}/plugins/{{ item }}.jpi.pinned state=touch owner=jenkins group=jenkins
+  changed_when: false
+  with_items:
+    - antisamy-markup-formatter
+    - credentials
+    - cvs
+    - javadoc
+    - junit
+    - mailer
+    - matrix-auth
+    - maven-plugin
+    - pam-auth
+    - script-security
+    - ssh-credentials
+    - subversion
+    - translation

@@ -1,0 +1,29 @@
+---
+
+- include: users.yml
+
+- name: create war directory
+  file: path="{{ jenkins_war_dir }}" state=directory
+  
+- name: copy war file
+  copy: src="jenkins-{{ jenkins_version }}.war" dest="{{ jenkins_war_dir }}"
+  notify:
+    - restart jenkins
+    - extract jenkins-cli
+  
+- name: create webroot directory
+  file: path="{{ jenkins_webroot }}" state=directory owner=jenkins group=jenkins
+  notify: restart jenkins
+
+- name: create home directory
+  file: path={{ jenkins_home }} state=directory owner=jenkins
+  notify: restart jenkins
+
+  # clone configuration while jenkins_home is empty
+- include: configuration.yml
+
+- include: plugins.yml
+
+- include: keystore.yml
+
+- include: service.yml

@@ -1,0 +1,32 @@
+---
+
+# jenkins version, keep quoted otherwise ansible treats it as a number and drops 0 at the end
+jenkins_version: "1.624"
+
+# http port
+jenkins_https_port: 10000
+
+# configuration repository
+jenkins_configuration_repo: "https://github.com/rzhilkibaev/jenkins-configuration-js.git"
+
+# home directory
+jenkins_home: /var/lib/jenkins
+
+# webroot directory
+jenkins_webroot: /var/cache/jenkins/war
+
+# war file directory
+jenkins_war_dir: /usr/share/jenkins
+
+# keystore file name
+# will generate a new keystore if commented out and keystore is not present on the remote host
+jenkins_keystore_file: keystore
+
+# keystore password
+jenkins_keystore_password: notasecret
+
+# java binary
+jenkins_java: /usr/bin/java
+
+# java arguments
+jenkins_java_args: "-Djava.awt.headless=true"
