@@ -1,6 +1,3 @@
 ---
 
-- include: docker-registry.yml
-- include: jenkins.yml
-- include: simple-file-server.yml
-- include: nexus.yml
+- include: jenkins-master.yml
