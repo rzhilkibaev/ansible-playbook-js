@@ -7,3 +7,4 @@
 *.jar
 keystore
 setup-secrets.sh
+site-run.sh
