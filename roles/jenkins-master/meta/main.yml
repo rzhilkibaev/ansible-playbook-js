@@ -1,5 +1,4 @@
 ---
 
 dependencies:
-  - { role: common }
-  - { role: oracle-java8-installer }
+  - { role: java }
