@@ -1,0 +1,7 @@
+---
+
+- name: install java tools
+  apt: name="{{ item }}" update_cache=yes
+  with_items:
+   - ant
+   - ant-contrib

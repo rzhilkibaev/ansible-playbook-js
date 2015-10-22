@@ -1,0 +1,7 @@
+---
+
+dependencies:
+  - { role: oracle-java7-installer }
+  - { role: oracle-java8-installer }
+  - { role: maven }
+  
