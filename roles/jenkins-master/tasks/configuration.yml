@@ -11,5 +11,3 @@
   sudo_user: jenkins
   # it always reports as changed because of local changes
   changed_when: false
-  tags:
-    - current
