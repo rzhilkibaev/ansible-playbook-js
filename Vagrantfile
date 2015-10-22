@@ -7,15 +7,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # shared configuration
     config.vm.provision "ansible" do |ansible|
-        ansible.tags = "current"
-        #ansible.playbook = "site.yml"
-        #ansible.playbook = "docker-registry.yml"
-        ansible.playbook = "jenkins-master.yml"
-        #ansible.playbook = "docker.yml"
-        #ansible.playbook = "nexus.yml"
-        #ansible.playbook = "jenkins.yml"
-        #ansible.skip_tags = "slow"
-        #ansible.playbook = "simple-file-server.yml"
+        ansible.playbook = "docker.yml"
         ansible.groups = {
             "docker-registry" => ["default"],
             "docker" => ["default"],
@@ -51,7 +43,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             managed.server = "vivid"
         end
     else
-        config.vm.box = "larryli/vivid64"
+        config.vm.box = "ubuntu/vivid64"
         # jenkins
         config.vm.network :forwarded_port, host: 10000, guest: 10000
         # docker-registry
