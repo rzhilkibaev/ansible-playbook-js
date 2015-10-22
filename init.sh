@@ -33,7 +33,7 @@ FILE_NAME="jdk-8u45-linux-x64.tar.gz"
 URL="http://download.oracle.com/otn-pub/java/jdk/8u45-b14/$FILE_NAME"
 ensure_jdk_present
 
-VER="1.624"
+VER="1.634"
 FILE_NAME="jenkins-${VER}.war"
 URL="http://mirrors.jenkins-ci.org/war/${VER}/jenkins.war"
 ensure_file_present
