@@ -38,15 +38,6 @@ FILE_NAME="jenkins-${VER}.war"
 URL="http://mirrors.jenkins-ci.org/war/${VER}/jenkins.war"
 ensure_file_present
 
-FILE_NAME="apache-ant-1.9.4-bin.tar.gz"
-URL=http://apache.mirrors.tds.net//ant/binaries/$FILE_NAME
-ensure_file_present
-
-VER="1.0b3"
-FILE_NAME="ant-contrib-${VER}.jar"
-URL=http://central.maven.org/maven2/ant-contrib/ant-contrib/$VER/$FILE_NAME
-ensure_file_present
-
 VER="3.2.5"
 FILE_NAME="apache-maven-$VER-bin.tar.gz"
 URL="http://www.carfab.com/apachesoftware/maven/maven-3/$VER/binaries/$FILE_NAME"

@@ -1,8 +1,0 @@
----
-
-dependencies:
-  - { role: java-oracle, tags: ["slow"] }
-  - { role: ant, tags: ["slow"] }
-  - { role: maven, tags: ["slow"] }
-  - { role: docker, tags: ["slow"] }
-  - { role: packer, tags: ["slow"] }

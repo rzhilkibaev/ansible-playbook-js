@@ -12,7 +12,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
             "docker-registry" => ["default"],
             "docker" => ["default"],
             "nexus" => ["default"],
-            "jenkins" => ["default"],
             "simple-file-server" => ["default"],
             "jenkins-master" => ["default"],
         }
