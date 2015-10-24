@@ -1,18 +1,23 @@
 ---
 
+- name: create docker-registry storage directory
+  file: path=/var/lib/docker-registry state=directory
+
 - name: install and start docker-registry container
   docker:
-    name: docker-registry
-    image: "registry:{{ docker_registry_version }}"
-    state: running
+    name: registry
+    image: "registry:2"
+    state: reloaded
+    restart_policy: always
     volumes:
-      - "/tmp/registry"
+      - "/var/lib/docker-registry:/var/lib/registry"
     ports:
       - "5000:5000"
+    # https://github.com/ansible/ansible-modules-core/issues/1129
+    # https://github.com/ansible/ansible-modules-core/issues/1251
+    # https://github.com/ansible/ansible-modules-core/pull/1609
+    # https://github.com/ansible/ansible-modules-core/issues/1130
+    # have to use net=bridge until the bug is resloved.
+    # otherwise the container is always restarted
+    net: bridge
 
-- name: create service
-  template: src=docker-registry.service.j2 dest=/lib/systemd/system/docker-registry.service
-  notify: restart docker-registry
-  
-- name: enable service
-  service: name=docker-registry enabled=yes

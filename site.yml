@@ -1,3 +1,5 @@
 ---
 
 - include: jenkins-master.yml
+- include: docker.yml
+- include: docker-registry.yml
