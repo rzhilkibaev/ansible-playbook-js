@@ -1,6 +1,6 @@
 ---
 
-- hosts: simple-file-server
+- hosts: sleepless
   sudo: yes
   roles:
     - simple-file-server

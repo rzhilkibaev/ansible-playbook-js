@@ -1,6 +1,6 @@
 ---
 
-- hosts: docker-registry
+- hosts: sleepless
   sudo: yes
   roles:
     - docker-registry

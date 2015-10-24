@@ -1,6 +1,6 @@
 ---
 
-- hosts: docker
+- hosts: sleepless
   sudo: yes
   roles:
     - docker

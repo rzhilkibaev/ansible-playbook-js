@@ -9,11 +9,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
     config.vm.provision "ansible" do |ansible|
         ansible.playbook = "docker.yml"
         ansible.groups = {
-            "docker-registry" => ["default"],
-            "docker" => ["default"],
-            "nexus" => ["default"],
-            "simple-file-server" => ["default"],
-            "jenkins-master" => ["default"],
+            "sleepless" => ["default"],
         }
     end
 
