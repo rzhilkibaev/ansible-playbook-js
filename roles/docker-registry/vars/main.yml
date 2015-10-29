@@ -1,4 +1,4 @@
 ---
 
 # storage location
-docker_registry_storage_location: /var/lib/docker-registry
+docker_registry_storage_location: /media/rzhilkib/win-hdd/docker-registry

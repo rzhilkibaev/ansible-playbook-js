@@ -1,12 +1,7 @@
 ---
 
-- name: check if storage location already exists
-  stat: path={{ docker_registry_storage_location }}
-  register: location
-  
 - name: create docker-registry storage directory
   file: path={{ docker_registry_storage_location }} state=directory
-  when: not location.stat.exists
 
 - name: install and start docker-registry container
   docker:
