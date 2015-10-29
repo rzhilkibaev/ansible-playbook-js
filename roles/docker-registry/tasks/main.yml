@@ -1,7 +1,12 @@
 ---
 
+- name: check if storage location already exists
+  stat: path={{ docker_registry_storage_location }}
+  register: location
+  
 - name: create docker-registry storage directory
-  file: path=/var/lib/docker-registry state=directory
+  file: path={{ docker_registry_storage_location }} state=directory
+  when: not location.stat.exists
 
 - name: install and start docker-registry container
   docker:
@@ -10,7 +15,7 @@
     state: reloaded
     restart_policy: always
     volumes:
-      - "/var/lib/docker-registry:/var/lib/registry"
+      - "{{ docker_registry_storage_location }}:/var/lib/registry"
     ports:
       - "5000:5000"
     # https://github.com/ansible/ansible-modules-core/issues/1129

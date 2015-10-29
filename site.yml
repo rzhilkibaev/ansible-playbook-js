@@ -3,6 +3,6 @@
 - hosts: sleepless 
   sudo: yes
   roles:
-    - jenkins-master
+    - jenkins
     - docker
     - docker-registry
