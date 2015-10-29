@@ -1,6 +1,0 @@
----
-
-- hosts: sleepless 
-  sudo: yes
-  roles:
-    - jenkins-master

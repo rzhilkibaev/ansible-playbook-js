@@ -7,7 +7,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
 
     # shared configuration
     config.vm.provision "ansible" do |ansible|
-        ansible.playbook = "docker.yml"
+        ansible.playbook = "site.yml"
         ansible.groups = {
             "sleepless" => ["default"],
         }

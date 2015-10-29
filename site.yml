@@ -1,5 +1,8 @@
 ---
 
-- include: jenkins-master.yml
-- include: docker.yml
-- include: docker-registry.yml
+- hosts: sleepless 
+  sudo: yes
+  roles:
+    - jenkins-master
+    - docker
+    - docker-registry
