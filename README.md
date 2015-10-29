@@ -25,7 +25,7 @@
   - port: `8000`
   - directory: `/opt/files`
 - nexus
-  - port: `8081`
+  - port: `18081`
   - volume: `/sonatype-work`
 
 ## Conventions

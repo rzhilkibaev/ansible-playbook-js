@@ -1,26 +1,22 @@
 ---
 
-- name: set up data container
-  docker:
-    name: nexus-data
-    image: busybox
-    state: present
-    volumes:
-      - "/sonatype-work"
-
-- name: set up nexus container
+- name: set up nexus data directory
+  file: path="{{ nexus_data_location }}" state=directory owner=200 recurse=yes
+  
+- name: setup nexus container
   docker:
     name: nexus
-    image: "sonatype/nexus:oss"
-    state: running
-    volumes_from:
-      - nexus-data
+    image: "sonatype/nexus:oss"  
+    state: reloaded
+    restart_policy: always
+    volumes:
+      - "{{ nexus_data_location }}:/sonatype-work"
     ports:
-      - "8081:8081"
-
-- name: create service
-  template: src=nexus.service.j2 dest=/lib/systemd/system/nexus.service
-  notify: restart nexus
-  
-- name: enable service
-  service: name=nexus enabled=yes
+      - "18081:8081"
+    # https://github.com/ansible/ansible-modules-core/issues/1129
+    # https://github.com/ansible/ansible-modules-core/issues/1251
+    # https://github.com/ansible/ansible-modules-core/pull/1609
+    # https://github.com/ansible/ansible-modules-core/issues/1130
+    # have to use net=bridge until the bug is resloved.
+    # otherwise the container is always restarted
+    net: bridge

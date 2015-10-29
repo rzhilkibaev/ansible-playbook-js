@@ -6,3 +6,5 @@
     - jenkins
     - docker
     - docker-registry
+    - nexus
+    
