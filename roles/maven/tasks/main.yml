@@ -1,13 +1,9 @@
 ---
 
-  # need to specify owner/group otherwise ansible creates files as uucp:143
-- name: extract maven
-  unarchive: src=apache-maven-3.2.5-bin.tar.gz dest=/opt owner=root group=root
-  
-  # buildomatic wants maven under /usr/local
-- name: symlink maven home
-  file: src=/opt/apache-maven-3.2.5 dest=/usr/local/maven owner=root group=root state=link
-  
-- name: symlinks maven binary
-  file: src=/usr/local/maven/bin/mvn dest=/usr/local/bin/mvn owner=root group=root state=link
-  
+- name: check if maven is already present
+  stat: path=/usr/local/maven
+  register: maven_location
+
+  # if stat.isdir is not defined it means the path doesn't exist, so no need to check for stat.islink
+- include: install_maven.yml
+  when: maven_location.stat.isdir is not defined

@@ -1,0 +1,13 @@
+---
+
+  # need to specify owner/group otherwise ansible creates files as uucp:143
+- name: extract maven
+  unarchive: src=apache-maven-3.2.5-bin.tar.gz dest=/opt owner=root group=root
+  
+  # buildomatic wants maven under /usr/local
+- name: symlink maven home
+  file: src=/opt/apache-maven-3.2.5 dest=/usr/local/maven owner=root group=root state=link
+  
+- name: symlinks maven binary
+  file: src=/usr/local/maven/bin/mvn dest=/usr/local/bin/mvn owner=root group=root state=link
+  
