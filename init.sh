@@ -27,11 +27,11 @@ CURL="curl --progress-bar --location"
 
 FILE_NAME="jdk-7u79-linux-x64.tar.gz"
 URL="http://download.oracle.com/otn-pub/java/jdk/7u79-b15/$FILE_NAME"
-ensure_jdk_present
+#ensure_jdk_present
 
 FILE_NAME="jdk-8u45-linux-x64.tar.gz"
 URL="http://download.oracle.com/otn-pub/java/jdk/8u45-b14/$FILE_NAME"
-ensure_jdk_present
+#ensure_jdk_present
 
 VER="1.639"
 FILE_NAME="jenkins-${VER}.war"
