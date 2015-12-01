@@ -5,6 +5,7 @@
 *.zip
 *.war
 *.jar
+*.bak
 keystore
 setup-secrets.sh
 site-run.sh
