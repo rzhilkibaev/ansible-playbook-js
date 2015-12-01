@@ -1,7 +1,7 @@
 ---
 
 # jenkins version, keep quoted otherwise ansible treats it as a number and drops 0 at the end
-jenkins_version: "1.634"
+jenkins_version: "1.639"
 
 # http port
 jenkins_https_port: 10000
