@@ -1,6 +1,6 @@
 .vagrant
 .project
-*.swp
+*.sw*
 *.tar.gz
 *.zip
 *.war
