@@ -1,7 +1,7 @@
 ---
 
 - hosts: sleepless 
-  sudo: yes
+  become: yes
   roles:
     - jenkins
     - docker

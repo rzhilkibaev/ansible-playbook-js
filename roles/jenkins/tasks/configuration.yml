@@ -8,6 +8,6 @@
 
 - name: checkout configuration
   git: repo="{{ jenkins_configuration_repo }}" dest="{{ jenkins_home }}" force=yes update=no
-  sudo_user: jenkins
+  become_user: jenkins
   # it always reports as changed because of local changes
   changed_when: false
