@@ -38,11 +38,6 @@ FILE_NAME="jenkins-${VER}.war"
 URL="http://mirrors.jenkins-ci.org/war/${VER}/jenkins.war"
 ensure_file_present
 
-VER="3.2.5"
-FILE_NAME="apache-maven-$VER-bin.tar.gz"
-URL="http://www.carfab.com/apachesoftware/maven/maven-3/$VER/binaries/$FILE_NAME"
-ensure_file_present
-
 VER="0.8.2"
 FILE_NAME="packer_${VER}_linux_amd64.zip"
 URL="https://dl.bintray.com/mitchellh/packer/$FILE_NAME"

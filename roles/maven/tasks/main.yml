@@ -1,9 +1,12 @@
 ---
-
-- name: check if maven is already present
-  stat: path=/usr/local/maven
-  register: maven_location
+- name: check if maven is already installed
+  stat: path=/var/lib/ansible/done/apache-maven-{{ maven_version }}.done
+  register: maven_done_file
 
   # if stat.isdir is not defined it means the path doesn't exist, so no need to check for stat.islink
 - include: install_maven.yml
-  when: maven_location.stat.isdir is not defined
+  when: maven_done_file.stat.isdir is not defined
+
+- name: update ansible done files
+  file: path=/var/lib/ansible/done/apache-maven-{{ maven_version }}.done state=touch
+  changed_when: false
