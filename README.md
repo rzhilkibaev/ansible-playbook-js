@@ -4,7 +4,6 @@
 - `jdk-8u45-linux-x64.tar.gz` (java-oracle)
 - `jenkins-1.615.war` (jenkins)
 - `keystore' (jenkins) optional
-- `packer_0.8.2_linux_amd64.zip` (packer)
 
 ## Installed software summary:
 - java-oracle
@@ -26,6 +25,8 @@
 - nexus
   - port: `18081`
   - volume: `/sonatype-work`
+- packer 0.9.0
+  - directory: `/usr/local/bin`
 
 ## Conventions
 - software not managed by apt-get is installed into /opt (except for Jenkins since it uses multiple directories).

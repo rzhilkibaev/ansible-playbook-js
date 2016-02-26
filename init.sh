@@ -38,12 +38,7 @@ FILE_NAME="jenkins-${VER}.war"
 URL="http://mirrors.jenkins-ci.org/war/${VER}/jenkins.war"
 ensure_file_present
 
-VER="0.8.2"
-FILE_NAME="packer_${VER}_linux_amd64.zip"
-URL="https://dl.bintray.com/mitchellh/packer/$FILE_NAME"
-ensure_file_present
-
-# ask to generate keystore if not present
+ ask to generate keystore if not present
 if [ ! -f keystore ]; then
     echo -n "generate keystore? [Y/n]: "
     read RESPONSE
