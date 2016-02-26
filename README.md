@@ -4,7 +4,6 @@
 - `jdk-8u45-linux-x64.tar.gz` (java-oracle)
 - `jenkins-1.615.war` (jenkins)
 - `keystore' (jenkins) optional
-- `apache-maven-3.2.5-bin.tar.gz` (maven)
 - `packer_0.8.2_linux_amd64.zip` (packer)
 
 ## Installed software summary:
@@ -14,7 +13,7 @@
 - ant
   - directory: `/opt/apache-ant-1.9.4`
 - maven
-  - directory: `/opt/apache-maven-3.2.5`
+  - directory: `/opt/apache-maven-3.3.9`
 - docker-registry
   - volume: `?`
   - port: `5000`
