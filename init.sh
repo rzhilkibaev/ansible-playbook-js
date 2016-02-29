@@ -5,40 +5,7 @@
 set -e
 set -o pipefail
 
-ensure_file_present() {
-    echo "$FILE_NAME"
-    if [ ! -f "$FILE_NAME" ]; then
-        $CURL -o $FILE_NAME $URL
-    else
-        echo "######################################################################## 100.0%"
-    fi
-}
-
-ensure_jdk_present() {
-    echo "$FILE_NAME"
-    if [ ! -f "$FILE_NAME" ]; then
-        $CURL --junk-session-cookies --header "Cookie: oraclelicense=accept-securebackup-cookie" -o $FILE_NAME $URL
-    else
-        echo "######################################################################## 100.0%"
-    fi
-}
-
-CURL="curl --progress-bar --location"
-
-FILE_NAME="jdk-7u79-linux-x64.tar.gz"
-URL="http://download.oracle.com/otn-pub/java/jdk/7u79-b15/$FILE_NAME"
-#ensure_jdk_present
-
-FILE_NAME="jdk-8u45-linux-x64.tar.gz"
-URL="http://download.oracle.com/otn-pub/java/jdk/8u45-b14/$FILE_NAME"
-#ensure_jdk_present
-
-VER="1.645"
-FILE_NAME="jenkins-${VER}.war"
-URL="http://mirrors.jenkins-ci.org/war/${VER}/jenkins.war"
-ensure_file_present
-
- ask to generate keystore if not present
+# ask to generate keystore if not present
 if [ ! -f keystore ]; then
     echo -n "generate keystore? [Y/n]: "
     read RESPONSE
@@ -47,4 +14,4 @@ if [ ! -f keystore ]; then
     fi
 fi
 
-echo "Done!"
+echo "Initialized"

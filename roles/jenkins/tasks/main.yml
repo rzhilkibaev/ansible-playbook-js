@@ -5,12 +5,22 @@
 - name: create war directory
   file: path="{{ jenkins_war_dir }}" state=directory
   
-- name: copy war file
-  copy: src="jenkins-{{ jenkins_version }}.war" dest="{{ jenkins_war_dir }}"
+- name: check if war file is already downloaded
+  stat: path=/var/lib/ansible/done/jenkins.war.{{ jenkins_version }}.done
+  register: jenkins_war_done_file
+
+  # 'stat.isdir is not defnied' means the file/dir doesn't exist at all, even if it's a file
+- name: download war file
+  get_url: url="http://mirrors.jenkins-ci.org/war/{{ jenkins_version }}/jenkins.war" dest="{{ jenkins_war_dir }}" force=yes
+  when: jenkins_war_done_file.stat.isdir is not defined
   notify:
     - restart jenkins
     - extract jenkins-cli
   
+- name: update ansible done files
+  file: path=/var/lib/ansible/done/jenkins.war.{{ jenkins_version }}.done state=touch
+  changed_when: false
+
 - name: create webroot directory
   file: path="{{ jenkins_webroot }}" state=directory owner=jenkins group=jenkins
   notify: restart jenkins

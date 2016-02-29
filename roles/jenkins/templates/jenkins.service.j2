@@ -12,7 +12,7 @@ Environment=JENKINS_HOME={{ jenkins_home }}
 SuccessExitStatus=143
 ExecStart={{ jenkins_java }} \
   {{ jenkins_java_args }} \
-  -jar {{ jenkins_war_dir }}/jenkins-{{ jenkins_version }}.war \
+  -jar {{ jenkins_war_dir }}/jenkins.war \
   --webroot={{ jenkins_webroot }} \
   --httpsPort={{ jenkins_https_port }} \
   --httpPort=-1 \
