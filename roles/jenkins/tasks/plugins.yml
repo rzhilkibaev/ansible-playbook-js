@@ -11,6 +11,7 @@
   retries: 5
   delay: 10
   with_items:
+    - ansicolor
     - ant
     - antisamy-markup-formatter
     - build-pipeline-plugin
@@ -39,6 +40,7 @@
     - ssh-credentials
     - ssh-slaves
     - subversion
+    - timestamper
     - token-macro
     - translation
     - windows-slaves
