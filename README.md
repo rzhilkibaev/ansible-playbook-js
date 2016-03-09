@@ -18,7 +18,7 @@
   - port: `5000`
 - jenkins
   - port: `10000`
-  - version: `1.615`
+  - version: `1.652`
 - simple-file-server
   - port: `8000`
   - directory: `/opt/files`
